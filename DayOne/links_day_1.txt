@@ -1,0 +1,13 @@
+ https://developer.mozilla.org/en/docs/web/javascript/reference/statements/export
+  
+WebPack, Bundling, Loaders, Setup File
+ https://github.com/AriaFallah/WebpackTutorial/tree/master/part1
+  SPA
+  https://en.wikipedia.org/wiki/Single-page_application
+ ES, ES5, ES6, Versioning
+ https://benmccormick.org/2015/09/14/es5-es6-es2016-es-next-whats-going-on-with-javascript-versioning/
+  Inheritance in ES6
+ http://2ality.com/2015/02/es6-classes-final.html
+   https://coryrylan.com/blog/javascript-es6-class-syntax
+ ASI
+http://stackoverflow.com/q/2846283
