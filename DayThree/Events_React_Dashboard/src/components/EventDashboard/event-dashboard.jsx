@@ -1,5 +1,5 @@
 import React from "react";
-import DashboardHeader from "./dashboard-header";
+import CommonHeader from "../Common/common-header";
 import HostingTable from "./hosting-table";
 
 
@@ -42,7 +42,11 @@ export default class EventDashboard extends React.Component{
 
     render(){ return (
         <div style={{marginTop: "20px", marginLeft: "20px"}}>
-         <DashboardHeader />
+         <CommonHeader 
+            title="My Events"
+            buttonLabel="Create Event"
+            onButtonClick={function(){console.log("This should trigger the Create Event UI")}}
+         />
          <HostingTable myEvents={events} />
         </div>
     )}
