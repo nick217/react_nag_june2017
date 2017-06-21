@@ -3,11 +3,13 @@ import * as ReactDOM from "react-dom";
 
 
 import EventDashboard from "./components/EventDashboard/event-dashboard";
+import CreateEvent from "./components/CreateEvent/create-event";
 
 class App extends React.Component{
 
     render(){ return(
-        <EventDashboard/>
+         <EventDashboard/>
+
     );
     }
 }
