@@ -1,11 +1,10 @@
 import React from "react";
 import CommonHeader from "../Common/common-header";
 import HostingTable from "./hosting-table";
+import axios from "axios";
 
 
 
-// fetch data
-// send data to props
 var events =
     [
             {
@@ -16,30 +15,37 @@ var events =
                 "venue": "New Delhi",
                 "hostId": 1
 
-             },
-
-             {
-        "id": 2,
-        "title": "Nagarro Javascript Bootcamp",
-        "startTime": "2017-06-02T00:00:00.000Z",
-        "endTime": "2017-06-20T00:00:00.000Z",
-        "venue": "Nagarro Office, Gurgaon",
-        "hostId": 1
-            },
-
-            {
-        "id": 3,
-        "title": "Champions Trophy Final",
-        "startTime": "2017-06-18T00:00:00.000Z",
-        "endTime": "2017-06-18T00:00:00.000Z",
-        "venue": "England",
-        "hostId": 2
-            }
-    ];
+             }];
 
 export default class EventDashboard extends React.Component{
 
 
+    constructor(props){
+        super(props)
+        this.state = {events : []}
+
+    }
+
+    componentDidMount(){
+
+        var url = "http://localhost:3456/api/events";
+        var config = {};
+        config.headers = {
+            "Authorization" : "Bearer e90IjAeX7WyZ5pmyzX1x",
+            "Content-Type" : "application/x-www-form-urlencoded"
+        };
+
+        axios.get(url, config).then(
+            function(response){
+                console.log(response);
+
+                // Parse response.data to fit your this.state.variable format
+                // Modify State
+                var events = response.data;
+                this.setState({events: events});
+            }.bind(this))
+
+    }
     render(){ return (
         <div style={{marginTop: "20px", marginLeft: "20px"}}>
          <CommonHeader 
@@ -47,7 +53,7 @@ export default class EventDashboard extends React.Component{
             buttonLabel="Create Event"
             onButtonClick={function(){console.log("This should trigger the Create Event UI")}}
          />
-         <HostingTable myEvents={events} />
+         <HostingTable myEvents={this.state.events} />
         </div>
     )}
 
