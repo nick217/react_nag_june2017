@@ -1,0 +1,117 @@
+
+* Review all the commits first!
+
+* Get to Base
+
+* Event Dashboard - Stripped Down Version
+
+
+* Set up Frontend Server
+- Download Code From Github
+- npm install and test in browser
+
+* Set up API server [if needed]
+- git@github.com:coding-blocks-archives/NagarroBootcampNode.git
+- npm install
+- CREATE DATABASE eventproject
+- Credentials in models.js
+-  mysql.server start
+
+
+- Add cors package
+- https://en.wikipedia.org/wiki/Cross-origin_resource_sharing
+
+* Issue with Node Server
+- app.use(cors());
+- https://stackoverflow.com/questions/18310394/no-access-control-allow-origin-node-apache-port-issue
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS
+- Why did it work in Postman? - Browsers disable it for security reasons!
+
+
+- Run Server
+- Get Bearer Token from /login.html
+- Postman
+https://documenter.getpostman.com/view/129661/eventproject/6Z6rApF#intro
+- Put in some events
+- Retrieve Events
+
+- Diagram : Frontend Dev Server, API, React Client Code
+
+
+
+* Replace static data with API call
+- React is a view library
+- React has no networking/AJAX features
+- React doesn't even "know" there is a server!
+- React renders its components using state and props
+
+
+- External tools to ensure "data from server" reaches "states and props"
+- We will use axios for AJAX calls  
+
+
+Read: https://hashnode.com/post/5-best-libraries-for-making-ajax-calls-in-react-cis8x5f7k0jl7th53z68s41k1
+
+
+* Where To Fetch Data From Server to React Components
+- Design Choice
+- All fetches in Root Component (App) and pass it down as prop
+- Versus 
+- Relevant Data Fetch In Relevant Component (Event Dashboard)
+- Pros and Cons
+
+HW : http://andrewhfarmer.com/react-ajax-best-practices/
+
+
+* GET AJAX call in Event Dashboard
+* Where in EventDashboard ?
+
+* Lifecycle methods
+- From the React docs
+- Each Component has lifecycle methods which are called at particular points in the lifecycle
+
+- You can override these 
+- will
+- did
+
+- Go To docs
+- Find out which lifecycle method to use
+https://facebook.github.io/react/docs/react-component.html
+
+
+- componentDidMount vs componentWillMount
+- componentWillMount doesn't trigger a re-render
+- So if data arrives asynchronously after render, it won't show up here
+- If it is called synchronously, it will block the render - bad user experience
+- Fetch server data in the componentDidMount method
+https://stackoverflow.com/questions/27139366/why-do-the-react-docs-recommend-doing-ajax-in-componentdidmount-not-componentwi
+
+- componentDidMount : after first render
+- lag : but I would rather see something, than see nothing. Eg. facebook
+
+HW: https://daveceddia.com/ajax-requests-in-react/
+
+
+* Axios 
+- https://www.npmjs.com/package/axios
+- Documentation
+- GET call
+- Install and import
+
+
+- this.state = {events: []}
+- Test on Postman
+- Axios.get then console.log(response
+- response.data : this.setState
+
+
+* Gist Snippet
+- https://gist.github.com/malikankit/f4ee41fbf83efb6c8524eb304bdce13e
+- Bearer Token : Hardcoded (Not In Actual App!)
+- Missing : Data Validation and Processing
+- setState
+
+
+Hands-On
+- Build and render components for the "My Invite" table in the Event Dashboard UI
+
