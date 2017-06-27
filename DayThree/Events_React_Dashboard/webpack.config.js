@@ -24,7 +24,7 @@ var config = {
     },
 
     resolve: {
-        // you can now require('file') instead of require('file.coffee')
+        // you can now require('file') instead of require('file.js') or require('file.jsx')
         extensions: ['.js', '.jsx']
     }
 
